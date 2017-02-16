@@ -3,24 +3,24 @@ language: java
 jdk:
   - openjdk6
   #- openjdk7 
-  - oraclejdk7 
-  - oraclejdk8
+#  #- oraclejdk7 
+ ### - oraclejdk8
   
 env:
   - env=test1
-matrix:
+#matrix:
 #include this version with the env 
-  include:               
-    - jdk: openjdk7
-      env: foo=fubu
+ # include:               
+  #  - jdk: openjdk7
+   #   env: foo=fubu
 #excludes this version 
-  exclude:             
-    - jdk: oraclejdk8
-      env:
-        - env=test1 
+  #exclude:             
+   # - jdk: oraclejdk8
+    #  env:
+     #   - env=test1 
 #allows failure for this version
-  allow_failures:
-    - jdk: oraclejdk7 
+ # allow_failures:
+  #  - jdk: oraclejdk7 
 addons:
   firefox: "25.0"    
 build:
