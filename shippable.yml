@@ -21,7 +21,8 @@ matrix:
 #allows failure for this version
   allow_failures:
     - jdk: oraclejdk7 
-    
+addons:
+  firefox: "25.0"    
 build:
   #advancedReporting: true   #by default adavanced reporting is true
   ci:
