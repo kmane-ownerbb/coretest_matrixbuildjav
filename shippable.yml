@@ -28,8 +28,8 @@ build:
   ci:
     # Create folders for test and code coverage
     - mkdir -p shippable/codecoverage
-    #- mvn install
-    - java -version
+    - mvn install
+    #- java -version
     - cp -r target shippable/codecoverage
     - docker ps
     - if [ "$SHIPPABLE_JDK_VERSION" == "oraclejdk7" ]; then foobar; fi # to make oraclejdk7 fail and this version allows allow_failure
