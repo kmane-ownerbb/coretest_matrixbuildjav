@@ -42,7 +42,9 @@ This is Sample Java project with Jacoco reports
     
 11. status badge
 12. check default pull image (drydock) 
-     
+  
+ project settings->runs config->low coverage alert (set coverage alert so that we will recive notification when coverage goes below that range 
+  
 13. Low coverage alert    
      - set low coverage alert below some range with unstable status from project setting->runsConfig, then when coverage report  goes below that range we will receive notification based on the notification we have configured in yml
      we will receive notification in following 
