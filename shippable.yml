@@ -7,7 +7,7 @@ jdk:
   - oraclejdk8
    
 env:
-  - env=test1
+  - env=test1  
 matrix:
 #include this version with the env 
   include:               
