@@ -1,0 +1,3 @@
+[submodule "coretest_singlebuildnod"]
+	path = coretest_singlebuildnod
+	url = https://shiptest-rc-ow@bitbucket.org/shiptest-rc-ow/coretest_singlebuildnod.git
