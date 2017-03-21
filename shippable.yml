@@ -1,18 +1,19 @@
 language: java
 
 jdk:
-  - openjdk6
-  #- openjdk7 
+  - openjdk8
+  #- openjdk7    
   - oraclejdk7 
   - oraclejdk8
-   
+  
 env:
-  - env=test1  
+  - env=test1
 matrix:
 #include this version with the env 
   include:               
     - jdk: openjdk7
       env: foo=fubu
+         
 #excludes this version 
   exclude:             
     - jdk: oraclejdk8
