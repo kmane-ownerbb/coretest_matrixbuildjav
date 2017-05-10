@@ -25,7 +25,7 @@ matrix:
 addons:
   firefox: "25.0"    
 build:
-  #advancedReporting: true   #by default adavanced reporting is true
+  #advancedReporting: true   #by default adavanced reporting is true 
   ci:
     # Create folders for test and code coverage
     - mkdir -p shippable/codecoverage
