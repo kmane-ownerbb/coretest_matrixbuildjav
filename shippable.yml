@@ -89,6 +89,6 @@ integrations:
         - FOO=FUBU
         - GOO=GUBU
       on_start: always
-      on_success: always
+      on_success: always 
       on_failure: always 
       
