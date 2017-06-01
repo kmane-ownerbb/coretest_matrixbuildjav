@@ -1,20 +1,19 @@
 language: java
-
+  
 jdk:
   - openjdk8
   #- openjdk7    
-  - oraclejdk7 
-  - oraclejdk8   
-  
-env:
-  - env=test1  
+  - oraclejdk7   
+  - oraclejdk8
+     
+env:  
+  - env=test1 
 matrix:
 #include this version with the env 
   include:               
     - jdk: openjdk7
-      env: foo=fubu
-         
-#excludes this version   
+      env: foo=fubu     
+#excludes this version 
   exclude:             
     - jdk: oraclejdk8
       env:
@@ -22,19 +21,26 @@ matrix:
 #allows failure for this version
   allow_failures:
     - jdk: oraclejdk7 
-addons:
-  firefox: "25.0"    
+
+addons: 
+  firefox: "25.0"     
 build:
-  #advancedReporting: true   #by default adavanced reporting is true 
+  #advancedReporting: true   #by default adavanced reporting is true
   ci:
     # Create folders for test and code coverage
     - mkdir -p shippable/codecoverage
     - mvn install
-    #- java -version
     - cp -r target shippable/codecoverage
-    - docker ps
+    #- java -version
+    - echo JobId=$JOB_ID
+    - echo JobTriggerByName="$JOB_TRIGGERED_BY_NAME"
+    - echo JobTriggerById="$JOB_TRIGGERED_BY_ID"    
     - if [ "$SHIPPABLE_JDK_VERSION" == "oraclejdk7" ]; then foobar; fi # to make oraclejdk7 fail and this version allows allow_failure
-    
+    - docker ps
+    - lsb_release -a
+    - docker --version
+    - docker info        
+
   cache: true
   cache_dir_list: 
     - $SHIPPABLE_BUILD_DIR/shippable.yml
@@ -49,26 +55,40 @@ integrations:
         - "#rc-private"
       on_start: always
       on_success: always
-      on_failure: always      
-      
+      on_failure: always 
+      on_cancel: always
+       
     - integrationName: email         
       type: email        
       recipients: 
         - shiptest.rc.ow@gmail.com
         - shiptest.rc.me@gmail.com
+     # sendConsoleLogs : true
+     # sendCoverageReports : true
       on_start: always
       on_success: always 
       on_failure: always 
-       
-     
-    - integrationName: irc    
+      on_cancel: always
+      
+    - integrationName: irc
       type: irc
       recipients:
         - "chat.freenode.net#test-rc"
         - "chat.freenode.net#test-alpha"
       on_start: always
       on_success: always      
-      on_failure: always   
+      on_failure: always  
+      on_cancel: always
+     
+    - integrationName: irc  
+      type: irc
+      recipients:
+        - "webchat.irchighway.net#irc-three"
+        - "webchat.irchighway.net#test-rc"
+      on_start: always
+      on_success: always      
+      on_failure: always 
+      on_cancel: always
     
     - integrationName: notify-hipchat
       type: hipchat
@@ -79,9 +99,19 @@ integrations:
       on_start: always
       on_success: always   
       on_failure: always
+      on_cancel: always
      
-  
-    - integrationName: projecttrigger-bb #samplNod project in shiptest-rc-ow will trigger
+    - integrationName: generic-webhook   #issue will get created in github samleNod project
+      type: webhook
+      payload:
+        - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
+      on_start: always
+      on_success: always
+      on_failure: always 
+      on_cancel: always
+        
+    - integrationName: project-trigger #samplNod project in shiptest-rc-ow will trigger
       type: webhook
       payload:
        # - BUILD_NUM=$SHIPPABLE_JOB_NUMBER 
@@ -90,5 +120,5 @@ integrations:
         - GOO=GUBU
       on_start: always
       on_success: always 
-      on_failure: always 
-      
+      on_failure: always
+      on_cancel: always
