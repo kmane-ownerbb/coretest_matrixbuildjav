@@ -101,17 +101,7 @@ integrations:
       on_failure: always
       on_cancel: always
      
-    - integrationName: generic-webhook   #issue will get created in github samleNod project
-      type: webhook
-      payload:
-        - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
-      on_start: always
-      on_success: always
-      on_failure: always 
-      on_cancel: always
-        
-    - integrationName: project-trigger #samplNod project in shiptest-rc-ow will trigger
+    - integrationName: projecttrigger-bb #samplNod project in shiptest-rc-ow will trigger
       type: webhook
       payload:
        # - BUILD_NUM=$SHIPPABLE_JOB_NUMBER 
@@ -122,3 +112,4 @@ integrations:
       on_success: always 
       on_failure: always
       on_cancel: always
+      
