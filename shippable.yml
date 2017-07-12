@@ -36,6 +36,6 @@ build:
     - if [ "$SHIPPABLE_JDK_VERSION" == "oraclejdk7" ]; then foobar; fi # to make oraclejdk7 fail and this version allows allow_failure
     
   cache: true
-  cache_dir_list: 
+  cache_dir_list:   
     - $SHIPPABLE_BUILD_DIR/shippable.yml
     
