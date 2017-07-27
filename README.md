@@ -26,7 +26,7 @@ This is Sample Java project with Jacoco reports
 
 6. Submodule public    
    - Added public submodule sampleNod which is there in shiptest-rc-ow 
-     so whenever sample_jacocomatrix  completes triggering in gitsync we should able to see the submodules sampleNod
+     so whenever sample_jacocomatrix  completes triggering in gitsync we should able to see the submodules sampleNod 
 
 7. event trigger project webhook(see payload shows correctly in all cases )    
     - we have set on_start : always,on_success:always where when sample_jacoccomatrix starts  triggering the project webhhook (sampleNod project will  trigger) check payload given in sample_jacoccomatrix is shown in the sampleNod for on_start and on_success build 
