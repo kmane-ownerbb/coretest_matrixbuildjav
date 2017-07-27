@@ -101,7 +101,7 @@ integrations:
       on_failure: always
       on_cancel: always
      
-    - integrationName: projecttrigger-bb #samplNod project in shiptest-rc-ow will trigger build
+    - integrationName: projecttrigger-bb #samplNod project in shiptest-rc-ow will trigger build1
       type: webhook
       payload:
        # - BUILD_NUM=$SHIPPABLE_JOB_NUMBER 
