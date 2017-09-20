@@ -83,3 +83,6 @@ This is Sample Java project with Jacoco reports
      
 16. Tag build from ui 
     - create a tag build , when we create a tag  from github ui (even if dont give release name )it will trigger          both tag and release build with tag name given    
+    
+    
+    
