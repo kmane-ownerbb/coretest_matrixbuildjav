@@ -20,7 +20,7 @@ This is Sample Java project with Jacoco reports
 4. Matrix.exclude version + user specified env vars 
       - Here we exclude version - jdk: oraclejdk8 with env=test1
 
-5. Matrix.allow_failure version     
+5. Matrix.allow_failure version        
    - version oraclejdk7 fails in build ci because of this - if [ "$SHIPPABLE_JDK_VERSION" == "oraclejdk7" ]; then foobar; fi
      so we allow failure for this version 
 
