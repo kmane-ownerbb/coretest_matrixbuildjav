@@ -3,9 +3,9 @@ language: java
 jdk:
   - openjdk8
   #- openjdk7    
-  - oraclejdk7   
+  - openjdk9   
   - oraclejdk8 
-  
+     
 env:  
   - env=test1 
 matrix:
@@ -15,12 +15,12 @@ matrix:
       env: foo=fubu     
 #excludes this version 
   exclude:             
-    - jdk: oraclejdk8
+    - jdk: openjdk9
       env:
         - env=test1 
 #allows failure for this version
   allow_failures:
-    - jdk: oraclejdk7 
+    - jdk: oraclejdk8
 
 addons: 
   firefox: "25.0"     
